@@ -18,18 +18,18 @@ It is simple api server. You can find api list to urls.py in each app.
 
 No Credentials are needed.
 
-| URL                               |METHOD| PARAM                                                      |        EXPLAINATION        |                                                                   Sample Data                                                                   |
-|:----------------------------------|:---:|:-----------------------------------------------------------|:--------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
-| patient/all/                      |  GET   | N/A                                                        |        전체 환자 수 가져오기        |                                                                 {"count":1000}                                                                  |
-| patient/gender/                   |  GET   | N/A                                    |        성별 환자 수 가져오기        |                                                          {"FEMALE": 452, "MALE": 548}                                                           |
-| patient/race/                     |  GET  | N/A                                     |       인종별 환자 수 가져오기        |                             {"No matching concept": 4, "White": 845, "Black or African American": 86, "Asian": 65}                              |
-| patient/ethnicity/                |GET| N/A  |       민족별 환자 수 가져오기        |                                                          {"No matching concept": 1000}                                                          |
-| patient/death/                    |GET| N/A       |        사망 환자 수 가져오기        |                                                                 {"count": 152"}                                                                 |
-| visit/type/                       |GET| N/A                                                        |      방문 유형별 방문 수 가져오기      |                               {"Emergency Room Visit": 3475, "Inpatient Visit": 1309, "Outpatient Visit": 37026}                                |
-| visit/gender/                     |GET| N/A                         |        성별 방문 수 가져오기        |                                                        {"FEMALE": 19307, "MALE": 22503}                                                         |
-| visit/race/                       |GET| N/A                                       |       인종별 방문 수 가져오기        |                         {"Asian": 2826, "Black or African American": 3326, "No matching concept": 171, "White": 35487}                          |
-| visit/ethnicity/                  |GET| N/A                                           |       민족별 방문 수 가져오기        |                                                          {"No matching concept": 1000}                                                          |
-| visit/age/                        |GET| N/A                                      | 방문시 연령대(10세 단위)별 방문 수 가져오기 |{"60": 4995, "70": 4012, "50": 6141, "0": 1178, "10": 2366, "20": 3867, "80": 3621, "30": 3376, "40": 4167, "100": 4913, "90": 2621, "110": 553} |
+| URL                |METHOD| PARAM                                                      |        EXPLAINATION        |                                                                   Sample Data                                                                   |
+|:-------------------|:---:|:-----------------------------------------------------------|:--------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
+| api/patient/all/   |  GET   | N/A                                                        |        전체 환자 수 가져오기        |                                                                 {"count":1000}                                                                  |
+| api/patient/gender/    |  GET   | N/A                                    |        성별 환자 수 가져오기        |                                                          {"FEMALE": 452, "MALE": 548}                                                           |
+| api/patient/race/      |  GET  | N/A                                     |       인종별 환자 수 가져오기        |                             {"No matching concept": 4, "White": 845, "Black or African American": 86, "Asian": 65}                              |
+| api/patient/ethnicity/ |GET| N/A  |       민족별 환자 수 가져오기        |                                                          {"No matching concept": 1000}                                                          |
+| api/patient/death/     |GET| N/A       |        사망 환자 수 가져오기        |                                                                 {"count": 152"}                                                                 |
+| api/visit/type/        |GET| N/A                                                        |      방문 유형별 방문 수 가져오기      |                               {"Emergency Room Visit": 3475, "Inpatient Visit": 1309, "Outpatient Visit": 37026}                                |
+| api/visit/gender/      |GET| N/A                         |        성별 방문 수 가져오기        |                                                        {"FEMALE": 19307, "MALE": 22503}                                                         |
+| api/visit/race/        |GET| N/A                                       |       인종별 방문 수 가져오기        |                         {"Asian": 2826, "Black or African American": 3326, "No matching concept": 171, "White": 35487}                          |
+| api/visit/ethnicity/   |GET| N/A                                           |       민족별 방문 수 가져오기        |                                                          {"No matching concept": 1000}                                                          |
+| api/visit/age/         |GET| N/A                                      | 방문시 연령대(10세 단위)별 방문 수 가져오기 |{"60": 4995, "70": 4012, "50": 6141, "0": 1178, "10": 2366, "20": 3867, "80": 3621, "30": 3376, "40": 4167, "100": 4913, "90": 2621, "110": 553} |
 
 # Architecture
 -
@@ -82,7 +82,9 @@ sqlparse==0.4.2
 
 - going to add init_sh.sh
 ```
-    # Run with root authority or account
+    # 1. clone this project
+    # 2. write your secrets in simple_emr_api/settings.ini
+    # 3. Run with root authority or account
     set chmod 744 init_sh.sh 
     run init_sh.sh
 ```
