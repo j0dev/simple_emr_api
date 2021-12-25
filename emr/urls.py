@@ -1,6 +1,6 @@
 from django.urls import path
 from emr.views.patient.patientCount import PatientAllView, PatientGenderView, PatientRaceView, PatientEthnicityView, PatientDeathView
-from emr.views.visit.visitCount import VisitTypeView, VisitGenderView, VisitRaceView, VisitEthnicityView
+from emr.views.visit.visitCount import VisitTypeView, VisitGenderView, VisitRaceView, VisitEthnicityView, VisitAgeGroupView
 
 
 urlpatterns = [
@@ -16,4 +16,5 @@ urlpatterns = [
     path('visit/gender/', VisitGenderView.as_view()),
     path('visit/race/', VisitRaceView.as_view()),
     path('visit/ethnicity/', VisitEthnicityView.as_view()),
+    path('visit/age/', VisitAgeGroupView.as_view()),
 ]

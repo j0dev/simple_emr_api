@@ -1,9 +1,14 @@
+import math
+
+from collections import defaultdict
 from django.db.models import Count
+from django.db.models.expressions import RawSQL
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from emr.models import VisitOccurrence
+from emr.models import VisitOccurrence, Person
+from datetime import datetime, timedelta
 
 
 class VisitTypeView(APIView):
@@ -73,16 +78,15 @@ class VisitEthnicityView(APIView):
 
 class VisitAgeGroupView(APIView):
     permission_classes = [AllowAny]
-    # 민족별 방문자 수
-    # ethnicity_concept_id 가 모두 0이고 concept_id가 0인 엔티티의 concept_name value가 "No matching concept"
+    # 연령대별 방문자 수
 
     def get(self, request):
-        queryset = VisitOccurrence.objects.select_related('person').select_related('person__ethnicity_concept').values('person__ethnicity_concept__concept_name') \
-            .annotate(count=Count('person__ethnicity_concept__concept_name'))
+        queryset = VisitOccurrence.objects.select_related('person').values('person__birth_datetime').annotate(age=RawSQL("date('now') - birth_datetime", params=""))
 
         # count data serializing
-        res_data = {}
+        res_data = defaultdict(int)
         for x in queryset:
-            res_data[x.get('person__ethnicity_concept__concept_name')] = x.get('count')
+            age = (math.trunc((x.get('age').days / 365)/10))*10
+            res_data[age] += 1
 
         return Response(res_data, status=status.HTTP_200_OK)
