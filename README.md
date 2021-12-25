@@ -80,6 +80,7 @@ sqlparse==0.4.2
 
 ## 3. How to set
 
+- going to add init_sh.sh
 ```
     # Run with root authority or account
     set chmod 744 init_sh.sh 
@@ -87,4 +88,4 @@ sqlparse==0.4.2
 ```
 
 # Test
-    going to add more...
+    going to add this...
