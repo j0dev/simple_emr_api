@@ -110,3 +110,63 @@ sqlparse==0.4.2
 
 # Test
     test! :D -->> http://$your_server_ip/api/patient/count/all
+    
+
+
+## 환자 수 ##
+
+- http://$your_server_ip/api/patient/count/all
+
+- http://$your_server_ip/api/patient/count/gender
+
+- http://$your_server_ip/api/patient/count/race
+
+- http://$your_server_ip/api/patient/count/ethnicity
+
+- http://$your_server_ip/api/patient/count/death
+
+## 환자 상세 정보 ##
+
+- http://$your_server_ip/api/patient/detail?page=1&search=
+
+## 방문 수 ##
+
+- http://$your_server_ip/api/visit/count/type
+
+- http://$your_server_ip/api/visit/count/gender
+
+- http://$your_server_ip/api/visit/count/race
+
+- http://$your_server_ip/api/visit/count/ethnicity
+
+- http://$your_server_ip/api/visit/count/age
+
+## 방문 상세 정보 ##
+
+- http://$your_server_ip/api/visit/detail?page=1&search=
+
+## concept 정보 ##
+
+- http://$your_server_ip/api/concept?page=1&search=
+
+- http://$your_server_ip/api/concept/person/gender?page=1&search=
+
+- http://$your_server_ip/api/concept/person/race?page=1&search=
+
+- http://$your_server_ip/api/concept/person/ethnicity?page=1&search=
+
+- http://$your_server_ip/api/concept/visit/type?page=1&search=
+
+- http://$your_server_ip/api/concept/condition?page=1&search=
+
+- http://$your_server_ip/api/concept/drug?page=1&search=
+
+## 진단(병명) 상세정보 ##
+
+- http://$your_server_ip/api/condition/detail?page=1&search=
+
+## 처방 의약품 상세 정보 ##
+
+- http://$your_server_ip/api/drug/detail?page=1&search=
+
+
