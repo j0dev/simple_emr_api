@@ -12,6 +12,10 @@ Using python3 & django rest-framework.
 
 - emr
 
+### REF
+
+- https://www.ohdsi.org/web/wiki/doku.php?id=documentation:cdm:common_data_model
+
 # API List
 
 It is simple api server. You can find api list to urls.py in each app.
