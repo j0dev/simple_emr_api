@@ -5,6 +5,9 @@ from emr.views.visit.visitCount import VisitTypeView, VisitGenderView, VisitRace
     VisitEthnicityView, VisitAgeGroupView
 from emr.views.concept.conceptInfo import ConceptDetailView
 from emr.views.concept.personInfo import PersonGenderConceptDetailView, PersonRaceDetailView, PersonEthnicityDetailView
+from emr.views.concept.vistiInfo import VisitTypeConceptDetailView
+from emr.views.concept.conditionInfo import ConditionConceptDetailView
+from emr.views.concept.drugInfo import DrugConceptDetailView
 
 urlpatterns = [
     # 환자 관련
@@ -25,13 +28,10 @@ urlpatterns = [
     path('concept', ConceptDetailView.as_view()),                              # 전체 concept 정보 + ?page=$int, $search=$str
     path('concept/person/gender', PersonGenderConceptDetailView.as_view()),    # 환자 성별 concept 정보 + ?page=$int, $search=$str
     path('concept/person/race', PersonRaceDetailView.as_view()),               # 환자 인종별 concept 정보 + ?page=$int, $search=$str
-    path('concept/person/ethnicity', PersonEthnicityDetailView.as_view())      # 환자 민족별 concept 정보 + ?page=$int, $search=$str
-
-    # path('concept/visit/type/', ConceptDetailView.as_view())       # 방문자 유형별 concept 정보
-
-    # path('concept/condition/', ConceptDetailView.as_view())       # 진단(병명) concept 정보
-
-    # path('concept/drug/', ConceptDetailView.as_view())       # 처방 의약품 concept 정보
+    path('concept/person/ethnicity', PersonEthnicityDetailView.as_view()),     # 환자 민족별 concept 정보 + ?page=$int, $search=$str
+    path('concept/visit/type', VisitTypeConceptDetailView.as_view()),          # 방문자 유형별 concept 정보
+    path('concept/condition', ConditionConceptDetailView.as_view()),           # 진단(병명) concept 정보
+    path('concept/drug', DrugConceptDetailView.as_view())                     # 처방 의약품 concept 정보
 
 
 
