@@ -1,4 +1,8 @@
+import math
+from collections import defaultdict
+
 from django.db.models import Count
+from django.db.models.expressions import RawSQL
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
@@ -57,11 +61,13 @@ class PatientEthnicityView(APIView):
         queryset = Person.objects.select_related('ethnicity_concept').values('ethnicity_concept__concept_name') \
             .annotate(count=Count('ethnicity_concept__concept_name'))
 
+
         # count data serializing
         res_data = {}
         for x in queryset:
-            age = (math.trunc((x.get('age').days / 365) / 10)) * 10
-            res_data[age] += 1
+            res_data = {}
+            for x in queryset:
+                res_data[x.get('ethnicity_concept__concept_name')] = x.get('count')
 
         return Response(res_data, status=status.HTTP_200_OK)
 
