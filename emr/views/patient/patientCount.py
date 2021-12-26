@@ -53,16 +53,15 @@ class PatientEthnicityView(APIView):
     # 민족별 환자 수
     # ethnicity_concept_id 가 모두 0이고 concept_id가 0인 엔티티의 concept_name value가 "No matching concept"
 
-
     def get(self, request):
         queryset = Person.objects.select_related('ethnicity_concept').values('ethnicity_concept__concept_name') \
             .annotate(count=Count('ethnicity_concept__concept_name'))
 
         # count data serializing
         res_data = {}
-
         for x in queryset:
-            res_data[x.get('ethnicity_concept__concept_name')] = x.get('count')
+            age = (math.trunc((x.get('age').days / 365) / 10)) * 10
+            res_data[age] += 1
 
         return Response(res_data, status=status.HTTP_200_OK)
 
