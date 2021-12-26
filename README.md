@@ -48,6 +48,7 @@ No Credentials are needed.
 - Interface(wsgi) : gunicorn 
 - WAS : django 
 - DB : postgresql (external regacy db)
+- Port : 80, 5432
 
 # SET-UP
 
@@ -71,7 +72,7 @@ POSTGRES_PORT=your-database-port
 
 ## 1. Target OS
 
-- ubuntu 18.04
+- Ubuntu Server 20.04 LTS
 
 ## 2. Dependancy
 
@@ -95,10 +96,14 @@ sqlparse==0.4.2
 ```
     # 1. clone this project
     # 2. write your secrets in simple_emr_api/settings.ini
+    # -- if possible, edit the secrets logic to environment variable
     # 3. Run with root authority or account
+    
     set chmod 744 init_sh.sh 
     run init_sh.sh
+    
+    # delete init_sh.sh when finish init_sh.sh 
 ```
 
 # Test
-    going to add this...
+    test! :D -->> http://$your_server_ip/api/patient/count/all/
