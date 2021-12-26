@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/webmaster/simple_emr_api
+ExecStart=/usr/bin/gunicorn --workers=5 --max-requests=1000 --bind=unix:/home/webmaster/simple_emr_api/run/gunicorn.sock simple_emr_api.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
