@@ -47,7 +47,6 @@ No Credentials are needed.
 | api/drug/detail            |  GET   | page, search : $url?page=$num&search=$str                             |   처처방 의약품 상세 정보, search = concept_name (의약품 명)을 검색   |                                                                                                                                                                             {"count": 46579,"next": $url or null, "previous": $url or null, "results": [{"drug_exposure_id": 148347855, "drug_concept": {"concept_id": 40213154, "concept_name": "Influenza, seasonal, injectable, preservative free", "domain_id": "Drug"}, "drug_exposure_start_datetime": "2013-11-08T03:28:43+09:00", "drug_exposure_end_datetime": "2013-11-08T03:28:43+09:00", "visit_occurrence": {"visit_occurrence_id": 53527560, "visit_start_datetime": "2013-11-08T03:28:43+09:00", "visit_end_datetime": "2013-11-08T03:43:43+09:00"}}, ...]}                                                                                                                                                                             |
 
 # Architecture
--
 - Web Server : nginx 
 - Interface(wsgi) : gunicorn 
 - WAS : django 
